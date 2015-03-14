@@ -4,9 +4,6 @@
  * Usage: $ casperjs scraper.js 
  */
 var casper = require("casper").create({
-    verbose: true,
-    logLevel: "debug",
-    waitTimeout: 5000,
     pageSettings: {
         userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:23.0) Gecko/20130404 Firefox/23.0"
     }
