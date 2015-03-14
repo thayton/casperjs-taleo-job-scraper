@@ -43,7 +43,7 @@ function getJobs() {
 
 var processPage = function() {
     this.echo("capturing page " + currentPage);
-    this.capture("taloe-jobs-page-" + currentPage + ".png");
+    this.capture("taleo-jobs-page-" + currentPage + ".png");
 
     jobs = this.evaluate(getJobs);
     require('utils').dump(jobs);
