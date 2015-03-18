@@ -24,7 +24,7 @@ function getSelectedPage() {
 }
 
 function getJobs() {
-    var rows = document.querySelectorAll('tr[id^="job"]');
+    var rows = document.querySelectorAll('table#jobs tr[id^="job"]');
     var jobs = [];
 
     for (var i = 0, row; row = rows[i]; i++) {
