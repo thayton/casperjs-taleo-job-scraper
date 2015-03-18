@@ -45,7 +45,7 @@ var processPage = function() {
     jobs = this.evaluate(getJobs);
     require('utils').dump(jobs);
 
-    if (currentPage >= 3 || !this.exists("div#jobPager a#next")) {
+    if (currentPage >= 3 || !this.exists("table#jobs")) {
         return terminate.call(casper);
     }
 
@@ -59,6 +59,6 @@ var processPage = function() {
 };
 
 casper.start(url);
-casper.waitForSelector('div#jobPager a#next', processPage, terminate);
+casper.waitForSelector('table#jobs', processPage, terminate);
 casper.run();
 
