@@ -42,6 +42,8 @@ function getJobs() {
 }
 
 var processPage = function() {
+    this.echo(this.fetchText('span#currentPageInfo'));
+
     jobs = this.evaluate(getJobs);
     require('utils').dump(jobs);
 
@@ -59,6 +61,11 @@ var processPage = function() {
 };
 
 casper.start(url);
-casper.waitForSelector('table#jobs', processPage, terminate);
+
+/* Wait for 'Job Openings 1 - 25 of 1105' to appear within span */        
+casper.waitFor(function() {
+    return /\d+ - \d+ of \d+/.test(this.fetchText('span#currentPageInfo'));
+}, processPage, terminate, 5000);
+
 casper.run();
 
